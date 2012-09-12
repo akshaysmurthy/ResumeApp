@@ -1,22 +1,23 @@
 require 'prawn'
 
 class Resume
-	def read
-		puts "Enter name: "
-		@name = gets.chomp
-		puts "Enter email: "
-		@email = gets.chomp
-		puts "Enter the format:"
-		puts "1 - TXT"
-		puts "2 - PDF"
-		gets.chomp
-	end	
+	def read(name,email,format)
+		@name = name
+		@email = email
+                if format == "1"
+	          write_to_txt
+                elsif format == "2"
+  	          write_to_pdf
+                else
+                  puts "Invalid format choice"
+                end
+	end
 
 	def write_to_txt
-		File.open("#{@name}.txt", 'w+') do |f| 
+		File.open("#{@name}.txt", 'w+') do |f|
 			f.puts "Name: #{@name}"
   	 		f.puts "Email: #{@email}"
-		end	
+		end
 	end
 
 	def write_to_pdf
@@ -27,14 +28,4 @@ class Resume
 	end
 end
 
-resume = Resume.new
-
-format = resume.read
-if format == "1"
-	resume.write_to_txt
-elsif format == "2"
-	resume.write_to_pdf
-else
-	puts "Invalid format choice"
-end
 

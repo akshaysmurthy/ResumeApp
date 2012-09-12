@@ -4,5 +4,6 @@ class ResumeFactory
 			TextResumeWriter.new
 		else
 			PDFResumeWriter.new
+                end
 	end
 end
