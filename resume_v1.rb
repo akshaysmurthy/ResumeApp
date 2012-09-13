@@ -1,10 +1,9 @@
 class Resume
-	def read
-		puts "Enter name: "
-		@name = gets.chomp
-		puts "Enter email: "
-		@email = gets.chomp
-	end	
+	def read(name,email)
+		@name = name
+		@email = email
+	   	write
+	end
 
 	def write
 		File.open("#{@name}.txt", 'w+') do |f| 
@@ -13,7 +12,3 @@ class Resume
 		end	
 	end
 end
-
-resume = Resume.new
-resume.read
-resume.write
