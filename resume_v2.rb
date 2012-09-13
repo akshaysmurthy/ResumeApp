@@ -9,7 +9,7 @@ require 'prawn'
 	        elsif format == "2"
 	   	        write_to_pdf
 	        else
-	            puts "Invalid format choice"
+	            raise 'Invalid File Format'
 	        end
 		end
 
